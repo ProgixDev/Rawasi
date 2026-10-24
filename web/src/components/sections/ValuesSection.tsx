@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Minus, Plus } from "lucide-react";
+import { Add, ArrowForward, Remove } from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -84,7 +84,7 @@ export function ValuesSection() {
                   <Link href="/#projects">
                     Explore Evergreen Vista
                     <span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                      <ArrowRight className="size-4" aria-hidden="true" />
+                      <ArrowForward className="size-4" aria-hidden="true" />
                     </span>
                   </Link>
                 </Button>
@@ -109,11 +109,11 @@ export function ValuesSection() {
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <span className="flex-1 text-base">{value.name}</span>
-                      <Plus
+                      <Add
                         className="size-4 text-muted-foreground group-open:hidden"
                         aria-hidden="true"
                       />
-                      <Minus
+                      <Remove
                         className="hidden size-4 text-primary-strong group-open:block"
                         aria-hidden="true"
                       />

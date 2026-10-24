@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowForward } from "@/components/ui/icons";
 import Image from "next/image";
 
 const STATS = [
@@ -92,7 +92,7 @@ export function HeroSection() {
               <a href="#projects">
                 Discover Evergreen Vista
                 <span className="grid size-8 place-items-center rounded-full bg-foreground text-background">
-                  <ArrowRight className="size-4" aria-hidden="true" />
+                  <ArrowForward className="size-4" aria-hidden="true" />
                 </span>
               </a>
             </Button>

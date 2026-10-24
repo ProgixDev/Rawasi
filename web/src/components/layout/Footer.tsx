@@ -1,5 +1,5 @@
 import { CONTACT } from "@/content/contact";
-import { ArrowUp } from "lucide-react";
+import { ArrowUpward } from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -38,7 +38,7 @@ export function Footer() {
               aria-label="Back to top"
               className="grid size-10 place-items-center rounded-full bg-primary text-primary-foreground transition-opacity hover:opacity-90"
             >
-              <ArrowUp className="size-4" aria-hidden="true" />
+              <ArrowUpward className="size-4" aria-hidden="true" />
             </a>
           </div>
         </div>

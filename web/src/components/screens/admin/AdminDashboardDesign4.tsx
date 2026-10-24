@@ -2,17 +2,17 @@
 
 import { cn } from "@/lib/utils";
 import {
-  ArrowDown,
-  ArrowUp,
-  ArrowUpRight,
-  Ellipsis,
-  Globe,
-  LogOut,
+  AccountBalanceWallet,
+  ArrowDownward,
+  ArrowUpward,
+  Logout,
   Mail,
+  MoreHoriz,
+  NorthEast,
   PieChart,
+  Public,
   Search,
-  Wallet,
-} from "lucide-react";
+} from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -398,7 +398,7 @@ function TopBar({
         </RoundButton>
         {logoutHref && (
           <RoundButton label="Sign out" href={logoutHref}>
-            <LogOut className="size-4" />
+            <Logout className="size-4" />
           </RoundButton>
         )}
 
@@ -454,11 +454,11 @@ function Revenue({
       <div className="flex flex-wrap items-center gap-2">
         <button type="button" className={pill} style={{ backgroundColor: C.ink, color: C.page }}>
           Transfer
-          <ArrowUp className="size-4" aria-hidden="true" />
+          <ArrowUpward className="size-4" aria-hidden="true" />
         </button>
         <button type="button" className={pill} style={{ backgroundColor: C.ink, color: C.page }}>
           Request
-          <ArrowDown className="size-4" aria-hidden="true" />
+          <ArrowDownward className="size-4" aria-hidden="true" />
         </button>
         <button
           type="button"
@@ -466,7 +466,7 @@ function Revenue({
           className="grid size-10 place-items-center rounded-full border"
           style={{ borderColor: C.line, color: C.ink }}
         >
-          <Ellipsis className="size-4" />
+          <MoreHoriz className="size-4" />
         </button>
       </div>
     </div>
@@ -628,7 +628,7 @@ function Analytics({
         title={title}
         action={
           <button type="button" aria-label="Analytics options" style={{ color: C.muted }}>
-            <Ellipsis className="size-4" />
+            <MoreHoriz className="size-4" />
           </button>
         }
       />
@@ -774,7 +774,7 @@ function Activity({
   return (
     <Card>
       <CardHead
-        icon={Globe}
+        icon={Public}
         title={title}
         action={
           <button
@@ -783,7 +783,7 @@ function Activity({
             className="grid size-8 place-items-center rounded-full"
             style={{ backgroundColor: C.cardSoft, color: C.ink }}
           >
-            <ArrowUpRight className="size-4" />
+            <NorthEast className="size-4" />
           </button>
         }
       />
@@ -859,7 +859,7 @@ function Transactions({
   return (
     <Card>
       <CardHead
-        icon={Wallet}
+        icon={AccountBalanceWallet}
         title={title}
         action={
           <button
@@ -915,7 +915,7 @@ function Transactions({
                 aria-label={`Options for ${item.name}`}
                 style={{ color: C.muted }}
               >
-                <Ellipsis className="size-5" />
+                <MoreHoriz className="size-5" />
               </button>
             </span>
           </li>

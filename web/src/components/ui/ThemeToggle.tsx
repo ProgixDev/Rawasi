@@ -8,13 +8,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/DropdownMenu";
 import { useTheme } from "@/contexts/ThemeContext";
-import { Laptop, Moon, Sun } from "lucide-react";
+import { DarkMode, LaptopMac, LightMode } from "@/components/ui/icons";
 import { useEffect, useState } from "react";
 
 const OPTIONS = [
-  { value: "light", label: "Light", icon: Sun },
-  { value: "dark", label: "Dark", icon: Moon },
-  { value: "system", label: "System", icon: Laptop },
+  { value: "light", label: "Light", icon: LightMode },
+  { value: "dark", label: "Dark", icon: DarkMode },
+  { value: "system", label: "System", icon: LaptopMac },
 ] as const;
 
 /**
@@ -44,7 +44,7 @@ export function ThemeToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="icon" aria-label="Toggle theme">
-          {mounted ? <Icon /> : <Laptop />}
+          {mounted ? <Icon /> : <LaptopMac />}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

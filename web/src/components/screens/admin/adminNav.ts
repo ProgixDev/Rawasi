@@ -1,19 +1,19 @@
 import {
+  Campaign,
   CreditCard,
-  FileCheck2,
+  Dashboard,
   Flag,
-  LayoutDashboard,
-  Megaphone,
+  Group,
+  type IconComponent,
   Newspaper,
   Settings,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
+  Task,
+} from "@/components/ui/icons";
 
 export interface AdminNavItem {
   href: string;
   label: string;
-  icon: LucideIcon;
+  icon: IconComponent;
   /** Extra terms the top bar's search finds this entry by, beyond its label. */
   keywords?: string[];
 }
@@ -32,13 +32,13 @@ export const DEFAULT_ADMIN_NAV: AdminNavItem[] = [
   {
     href: "/admin",
     label: "Overview",
-    icon: LayoutDashboard,
+    icon: Dashboard,
     keywords: ["dashboard", "stats", "bookings", "home"],
   },
   {
     href: "#",
     label: "Applications",
-    icon: FileCheck2,
+    icon: Task,
     keywords: ["documents", "verification", "signup", "approve"],
   },
   {
@@ -50,13 +50,13 @@ export const DEFAULT_ADMIN_NAV: AdminNavItem[] = [
   {
     href: "#",
     label: "Accounts",
-    icon: Users,
+    icon: Group,
     keywords: ["users", "profiles", "suspend", "ban"],
   },
   {
     href: "#",
     label: "Ads",
-    icon: Megaphone,
+    icon: Campaign,
     keywords: ["banner", "placement", "campaign", "promotion"],
   },
   {

@@ -14,6 +14,8 @@ Before writing or changing any UI in `web/` or `mobile/`, read `DESIGN.md` at th
 ## Where things live
 
 - Web: Next.js in `web/`, Tailwind 4, shared components in `web/src/components/ui`, theme variables in `web/src/app/globals.css`.
+- Icons (web): Material Symbols from fonts.google.com/icons, as inline SVG in `web/src/components/ui/icons.tsx`. Import from there; don't add another icon library.
+- Marketing page: `web/src/app/(marketing)/`, sections in `web/src/components/sections/`, header and footer in `web/src/components/layout/`, contact details in `web/src/content/contact.ts`.
 - Mobile: Expo in `mobile/`, themes in `mobile/src/constants/themes.ts`.
 - Logo: `web/public/Logo.png` and `mobile/assets/images/Logo.png`. Wide transparent PNG. Don't recolor or distort it.
 

@@ -11,16 +11,16 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import {
-  ArrowDownRight,
-  ArrowRight,
-  ArrowUpRight,
+  ArrowForward,
   ChevronRight,
-  LogOut,
+  type IconComponent,
+  Logout,
   Menu,
+  NorthEast,
   Search,
+  SouthEast,
   Star,
-  type LucideIcon,
-} from "lucide-react";
+} from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -85,7 +85,7 @@ export interface QueueItem {
   initials?: string;
   title: string;
   subtitle?: string;
-  badge?: { label: string; icon?: LucideIcon };
+  badge?: { label: string; icon?: IconComponent };
   body?: string;
 }
 
@@ -502,7 +502,7 @@ function TopBar({
             aria-label="Sign out"
             className="grid size-10 shrink-0 place-items-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:text-foreground"
           >
-            <LogOut className="size-4" />
+            <Logout className="size-4" />
           </Link>
         )}
       </div>
@@ -520,7 +520,7 @@ function TopBar({
 // delta label keeps its sign, so nothing here rests on colour alone.
 // ---------------------------------------------------------------------------
 
-const ARROW = { up: ArrowUpRight, down: ArrowDownRight } as const;
+const ARROW = { up: NorthEast, down: SouthEast } as const;
 
 function StatCards({ stats }: { stats: StatCard[] }) {
   return (
@@ -534,7 +534,7 @@ function StatCards({ stats }: { stats: StatCard[] }) {
     // the chart moves up a whole row.
     <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
       {stats.map((stat) => {
-        const Arrow = stat.delta ? ARROW[stat.delta.direction] : ArrowRight;
+        const Arrow = stat.delta ? ARROW[stat.delta.direction] : ArrowForward;
         return (
           <section key={stat.id} className="rounded-2xl bg-card p-4 sm:p-5">
             <h2 className="text-xs font-medium text-muted-foreground">{stat.label}</h2>

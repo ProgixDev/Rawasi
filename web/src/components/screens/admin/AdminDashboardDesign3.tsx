@@ -2,13 +2,13 @@
 
 import { cn } from "@/lib/utils";
 import {
-  Bell,
-  ChevronsUpDown,
-  ListFilter,
-  LogOut,
-  MessageCircle,
+  ChatBubble,
+  FilterList,
+  Logout,
+  Notifications,
   Search,
-} from "lucide-react";
+  UnfoldMore,
+} from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -494,7 +494,7 @@ function TopBar({
           className={round}
           style={{ borderColor: C.line, backgroundColor: C.card, color: C.ink }}
         >
-          <MessageCircle className="size-4" />
+          <ChatBubble className="size-4" />
         </button>
         <button
           type="button"
@@ -502,7 +502,7 @@ function TopBar({
           className={round}
           style={{ borderColor: C.line, backgroundColor: C.card, color: C.ink }}
         >
-          <Bell className="size-4" />
+          <Notifications className="size-4" />
         </button>
 
         {logoutHref && (
@@ -512,7 +512,7 @@ function TopBar({
             className={round}
             style={{ borderColor: C.line, backgroundColor: C.card, color: C.ink }}
           >
-            <LogOut className="size-4" />
+            <Logout className="size-4" />
           </Link>
         )}
 
@@ -719,15 +719,15 @@ function CryptoTable({ title, rows }: NonNullable<AdminDashboardDesign3Props["ta
         <div className="flex flex-wrap items-center gap-2">
           <Chip>
             Volume(24h)
-            <ChevronsUpDown className="size-3" aria-hidden="true" />
+            <UnfoldMore className="size-3" aria-hidden="true" />
           </Chip>
           <Chip>
             Market Cap(24h)
-            <ChevronsUpDown className="size-3" aria-hidden="true" />
+            <UnfoldMore className="size-3" aria-hidden="true" />
           </Chip>
           <Chip>
             Filters
-            <ListFilter className="size-3" aria-hidden="true" />
+            <FilterList className="size-3" aria-hidden="true" />
           </Chip>
         </div>
       </div>
@@ -870,7 +870,7 @@ function FearGreed({
         </h2>
         <Chip>
           Filters
-          <ListFilter className="size-3" aria-hidden="true" />
+          <FilterList className="size-3" aria-hidden="true" />
         </Chip>
       </div>
 

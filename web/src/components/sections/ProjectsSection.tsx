@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowForward, NorthEast } from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -89,7 +89,7 @@ function ProjectTile({ project }: { project: Project }) {
         aria-hidden="true"
         className="absolute top-3 right-3 grid size-9 place-items-center rounded-full bg-surface-glass text-foreground backdrop-blur-md sm:top-4 sm:right-4"
       >
-        <ArrowUpRight className="size-4" />
+        <NorthEast className="size-4" />
       </span>
 
       <figcaption className="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-4 sm:p-5">
@@ -136,7 +136,7 @@ export function ProjectsSection() {
             <Link href="/#contact">
               Start a project
               <span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                <ArrowRight className="size-4" aria-hidden="true" />
+                <ArrowForward className="size-4" aria-hidden="true" />
               </span>
             </Link>
           </Button>

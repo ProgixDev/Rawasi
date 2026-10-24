@@ -17,18 +17,18 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import {
-  Bell,
   Check,
-  ChevronDown,
   ChevronLeft,
   ChevronRight,
-  Droplet,
-  Footprints,
-  Heart,
-  LogOut,
+  DirectionsWalk,
+  Favorite,
+  type IconComponent,
+  KeyboardArrowDown,
+  Logout,
   Menu,
-  type LucideIcon,
-} from "lucide-react";
+  Notifications,
+  WaterDrop,
+} from "@/components/ui/icons";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -70,7 +70,7 @@ export interface ActivityBar {
 
 export interface VitalStat {
   id: string;
-  icon: LucideIcon;
+  icon: IconComponent;
   /** Pre-formatted — the unit belongs to the caller. */
   value: string;
   label: string;
@@ -154,9 +154,9 @@ const ACTIVITY = {
 };
 
 const VITALS: VitalStat[] = [
-  { id: "heart-rate", icon: Heart, value: "108bpm", label: "Heart Rate" },
-  { id: "distance", icon: Footprints, value: "2.5km", label: "Distance" },
-  { id: "water", icon: Droplet, value: "1.7l", label: "Water" },
+  { id: "heart-rate", icon: Favorite, value: "108bpm", label: "Heart Rate" },
+  { id: "distance", icon: DirectionsWalk, value: "2.5km", label: "Distance" },
+  { id: "water", icon: WaterDrop, value: "1.7l", label: "Water" },
 ];
 
 const OVERVIEW = {
@@ -256,7 +256,7 @@ function RangeLabel({ label }: { label: string }) {
           className="flex items-center gap-1 text-sm text-white/70 transition-colors hover:text-white"
         >
           {label}
-          <ChevronDown className="size-3.5" aria-hidden="true" />
+          <KeyboardArrowDown className="size-3.5" aria-hidden="true" />
         </button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
@@ -278,7 +278,7 @@ function PanelHeading({ title, rangeLabel }: { title: string; rangeLabel?: strin
 }
 
 /** Icon in a soft glass circle — the vitals and the output figure lead with one. */
-function IconBubble({ icon: Icon }: { icon: LucideIcon }) {
+function IconBubble({ icon: Icon }: { icon: IconComponent }) {
   return (
     <span
       aria-hidden="true"
@@ -707,7 +707,7 @@ function Output({
           this the label is the part that loses — "Weight Lo…". */}
       <div className="mt-3 flex flex-wrap items-end justify-between gap-3">
         <div className="flex min-w-0 items-center gap-4">
-          <IconBubble icon={Droplet} />
+          <IconBubble icon={WaterDrop} />
           <div className="min-w-0">
             <p className="truncate text-lg font-semibold text-white">{value}</p>
             <p className="truncate text-sm text-white/60">{label}</p>
@@ -819,7 +819,7 @@ export function AdminDashboardDesign2({
 
             <div className="flex shrink-0 items-center gap-2 sm:gap-3">
               <button type="button" aria-label="Notifications" className={iconButton}>
-                <Bell className="size-4" />
+                <Notifications className="size-4" />
               </button>
 
               {avatarSrc ? (
@@ -844,7 +844,7 @@ export function AdminDashboardDesign2({
 
               {logoutHref && (
                 <Link href={logoutHref} aria-label="Sign out" className={iconButton}>
-                  <LogOut className="size-4" />
+                  <Logout className="size-4" />
                 </Link>
               )}
             </div>

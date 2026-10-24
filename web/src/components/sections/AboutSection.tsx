@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowForward } from "@/components/ui/icons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,14 +7,15 @@ import Link from "next/link";
  * Text on the left, a photo on the right. From `lg` the photo is pinned to
  * the page's right edge (square on that side) instead of sitting inside the
  * content column, so it bleeds off the screen like the reference; below
- * `lg` it is an ordinary rounded image under the copy.
+ * `lg` it is an ordinary rounded image under the copy. It is inset from the
+ * section's top and bottom so it never touches the hero card above it.
  */
 export function AboutSection() {
   return (
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="relative scroll-mt-24 overflow-hidden py-20 sm:py-28 lg:min-h-[40rem]"
+      className="relative scroll-mt-24 overflow-hidden py-20 sm:py-28 lg:min-h-[50rem]"
     >
       <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-10 px-5 sm:px-8 lg:px-12">
         <div className="flex flex-col items-start gap-6 lg:w-[42%] lg:py-12">
@@ -43,14 +44,14 @@ export function AboutSection() {
             <Link href="/#approach">
               Our approach
               <span className="grid size-8 place-items-center rounded-full bg-primary text-primary-foreground">
-                <ArrowRight className="size-4" aria-hidden="true" />
+                <ArrowForward className="size-4" aria-hidden="true" />
               </span>
             </Link>
           </Button>
         </div>
       </div>
 
-      <div className="relative mx-5 mt-10 aspect-4/3 overflow-hidden rounded-3xl sm:mx-8 lg:absolute lg:inset-y-0 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[52%] lg:rounded-l-4xl lg:rounded-r-none">
+      <div className="relative mx-5 mt-10 aspect-4/3 overflow-hidden rounded-3xl sm:mx-8 lg:absolute lg:inset-y-24 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[52%] lg:rounded-l-4xl lg:rounded-r-none">
         <Image
           src="/images/AboutSectionMainPicture.webp"
           alt="Evening view of a brick house with arched French doors and a lit front walk"

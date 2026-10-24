@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CONTACT } from "@/content/contact";
-import { ArrowRight } from "lucide-react";
+import { ArrowForward } from "@/components/ui/icons";
 
 // Facts about the Evergreen Vista land, from the company profile.
 const STATS = [
@@ -39,7 +39,7 @@ export function ContactSection() {
             <a href={`mailto:${CONTACT.email}`}>
               Contact us
               <span className="grid size-8 place-items-center rounded-full bg-foreground text-background">
-                <ArrowRight className="size-4" aria-hidden="true" />
+                <ArrowForward className="size-4" aria-hidden="true" />
               </span>
             </a>
           </Button>

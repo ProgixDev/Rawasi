@@ -93,6 +93,11 @@ Material 3 (Material You) is Google’s latest evolution of its design language.
 - **Sizes:** Body is 16px / 1.5 / 400. Headings are Medium 500 with no letter-spacing.
 - **Web files:** WOFF2 Latin subsets (English and French accents) live in `web/public/fonts/<Family>` and are declared with `@font-face` in `web/src/app/globals.css`. All three are under the SIL Open Font License, free for commercial use.
 
+## Icons
+- **Material Symbols, Outlined, weight 400, 24px:** the set at fonts.google.com/icons. Icons are inline SVG components in `web/src/components/ui/icons.tsx`, named like the site's icons in PascalCase (`arrow_forward` becomes `ArrowForward`). Don't import another icon library.
+- **Adding one:** download the SVG from fonts.google.com/icons and add its path to `icons.tsx` (the file explains how). Choose Fill 1 only when the design needs a filled glyph, such as a star rating or a radio dot.
+- **Use:** they draw in the current text color and size with `size-*` classes (`size-4` for buttons and inline use). They are decorative (`aria-hidden`), so give a button or link its own accessible name.
+
 ## Components
 - **FAB (Floating Action Button):** Now often larger and square-rounded (`16px`) rather than a perfect circle.
 - **Navigation Bar:** A horizontal bottom bar with large, rounded pill-shaped indicators for the active state.

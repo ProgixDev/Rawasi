@@ -1,6 +1,6 @@
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Heart } from "lucide-react";
+import { Favorite } from "@/components/ui/icons";
 import { AdminDashboardDesign2 } from "./AdminDashboardDesign2";
 
 // next/link reaches for the router; outside the app router there is none.
@@ -81,7 +81,7 @@ describe("AdminDashboardDesign2", () => {
     render(
       <AdminDashboardDesign2
         title="Studio stats"
-        vitals={[{ id: "hr", icon: Heart, value: "64bpm", label: "Resting" }]}
+        vitals={[{ id: "hr", icon: Favorite, value: "64bpm", label: "Resting" }]}
       />,
     );
 
