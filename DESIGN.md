@@ -38,13 +38,16 @@ colors:
 
 typography:
   fontFamily:
-    sans: "Helvetica Neue, Helvetica, Arial, sans-serif"   # Loaded weights: 300, 400, 400 italic, 500, 700
-    mono: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"  # System stack, no webfont
+    sans: "IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"  # Main: body and UI. Weights 400, 400 italic, 500, 700
+    mono: "IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"  # Same family
+    display: "Fraunces, Georgia, Times New Roman, serif"          # Headlines. Variable 300-700, upright + italic
+    text: "Inter, system-ui, -apple-system, Segoe UI, sans-serif" # Long paragraphs. Variable 300-700
   body:
     fontSize: "16px"
     lineHeight: "1.5"
     fontWeight: "400"
   heading:
+    fontFamily: "display"
     fontWeight: "500"
     letterSpacing: "0"
 
@@ -84,10 +87,11 @@ Material 3 (Material You) is Google’s latest evolution of its design language.
 - **On-Colors:** A strict system where every background color has a corresponding "On" color (e.g., `On Primary`) for high-contrast text and icons.
 
 ## Typography
-- **Helvetica Neue:** The primary font family. Static weights only: Light 300, Regular 400 (plus italic), Medium 500, Bold 700. Use these four; `font-semibold` (600) resolves to Bold.
-- **Body and headings:** Body is 16px / 1.5 / 400. Headings are Medium 500 with no letter-spacing.
-- **Mono:** System monospace stack. Helvetica Neue has no mono companion and no webfont is loaded for it.
-- **Web files:** WOFF2 Latin subsets (English and French accents) live in `web/public/fonts/HelveticaNeue` and are declared with `@font-face` in `web/src/app/globals.css`. Only those five faces exist.
+- **IBM Plex Mono (main):** Body text, UI, labels, numbers. Static faces: Regular 400, Italic 400, Medium 500, Bold 700. `font-semibold` (600) resolves to Bold. It is the default (`font-sans` and `font-mono`).
+- **Fraunces (display):** Headlines (`font-display`, applied to `h1`–`h6`). Variable weight 300–700 with optical size, upright and italic. Pair an upright headline with an italic accent word, as in the reference design ("Built with *Purpose*").
+- **Inter (long text):** Paragraphs of more than a couple of lines (`font-text`), where a monospace face gets tiring. Variable weight 300–700.
+- **Sizes:** Body is 16px / 1.5 / 400. Headings are Medium 500 with no letter-spacing.
+- **Web files:** WOFF2 Latin subsets (English and French accents) live in `web/public/fonts/<Family>` and are declared with `@font-face` in `web/src/app/globals.css`. All three are under the SIL Open Font License, free for commercial use.
 
 ## Components
 - **FAB (Floating Action Button):** Now often larger and square-rounded (`16px`) rather than a perfect circle.

@@ -3,10 +3,13 @@ import { ThemeProvider } from "@/contexts/ThemeContext";
 import type { Metadata } from "next";
 import { preload } from "react-dom";
 
-// Helvetica Neue (DESIGN.md) is declared with @font-face in globals.css and
-// served from public/fonts. Preload the two faces the first paint uses —
-// body text (400) and headings (500) — so text doesn't swap late.
-const PRELOADED_FONTS = ["Regular", "Medium"];
+// The fonts (DESIGN.md) are declared with @font-face in globals.css and
+// served from public/fonts. Preload the two the first paint uses — body text
+// (IBM Plex Mono Regular) and headings (Fraunces) — so text doesn't swap late.
+const PRELOADED_FONTS = [
+  "/fonts/IBMPlexMono/IBMPlexMono-Regular.woff2",
+  "/fonts/Fraunces/Fraunces-Variable.woff2",
+];
 
 export const metadata: Metadata = {
   // Needed to resolve og:image/twitter:image into absolute URLs — without
@@ -18,8 +21,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
-  for (const weight of PRELOADED_FONTS) {
-    preload(`/fonts/HelveticaNeue/HelveticaNeue-${weight}.woff2`, {
+  for (const href of PRELOADED_FONTS) {
+    preload(href, {
       as: "font",
       type: "font/woff2",
       crossOrigin: "anonymous",
