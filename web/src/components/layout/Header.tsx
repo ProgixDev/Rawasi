@@ -30,7 +30,7 @@ const NAV_LINKS = [
 export function Header() {
   return (
     <header className="fixed inset-x-0 top-3 z-40 px-3 sm:top-5 sm:px-6">
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 rounded-full bg-surface-glass py-2 pr-2 pl-4 shadow-lg shadow-brand/10 backdrop-blur-md">
+      <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 rounded-full bg-surface-glass py-1.5 pr-2 pl-4 shadow-lg shadow-brand/10 backdrop-blur-md">
         <Link
           href="/"
           aria-label="Rawasi, home"
@@ -39,10 +39,10 @@ export function Header() {
           <Image
             src="/Logo.png"
             alt="Rawasi — Real estate & Construction"
-            width={190}
-            height={74}
+            width={256}
+            height={99}
             priority
-            className="h-8 w-auto sm:h-9"
+            className="h-10 w-auto sm:h-12"
           />
         </Link>
 
