@@ -63,4 +63,16 @@ describe("Home", () => {
     await user.click(within(values).getByText("Integrity"));
     expect(integrity).toHaveAttribute("open");
   });
+
+  it("renders the approach section with the four mission statements in order", () => {
+    render(<Home />);
+
+    const approach = screen.getByRole("region", { name: "Our mission, in four parts" });
+
+    expect(approach).toHaveAttribute("id", "approach");
+    const items = within(approach).getAllByRole("listitem");
+    expect(items).toHaveLength(4);
+    expect(items[0]).toHaveTextContent(/undervalued real estate opportunities/);
+    expect(items[3]).toHaveTextContent(/sustainable development/);
+  });
 });
