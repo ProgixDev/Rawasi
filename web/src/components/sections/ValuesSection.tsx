@@ -54,7 +54,7 @@ export function ValuesSection() {
             <div className="relative aspect-4/3 overflow-hidden rounded-3xl lg:aspect-5/4">
               <Image
                 src="/images/ValuesSectionVision.webp"
-                alt="Hands sketching a building plan on paper with a black marker"
+                alt="Two people reviewing house plans beside a wooden architectural model, a hard hat and material samples"
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 className="object-cover"

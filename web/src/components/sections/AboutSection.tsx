@@ -4,11 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 /**
- * Text on the left, a photo on the right. From `lg` the photo is pinned to
- * the page's right edge (square on that side) instead of sitting inside the
- * content column, so it bleeds off the screen like the reference; below
- * `lg` it is an ordinary rounded image under the copy. It is inset from the
- * section's top and bottom so it never touches the hero card above it.
+ * Text on the left, a picture on the right. From `lg` the picture's panel is
+ * pinned to the page's right edge (square on that side) instead of sitting
+ * inside the content column, so it bleeds off the screen like the reference;
+ * below `lg` it is an ordinary rounded panel under the copy. It is inset from
+ * the section's top and bottom so it never touches the hero card above it.
+ *
+ * The picture is a transparent cutout of a house, not a rectangular photo, so
+ * it sits on a soft surface panel and is contained rather than cropped.
  */
 export function AboutSection() {
   return (
@@ -51,13 +54,13 @@ export function AboutSection() {
         </div>
       </div>
 
-      <div className="relative mx-5 mt-10 aspect-4/3 overflow-hidden rounded-3xl sm:mx-8 lg:absolute lg:inset-y-24 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[52%] lg:rounded-l-4xl lg:rounded-r-none">
+      <div className="relative mx-5 mt-10 aspect-4/3 overflow-hidden rounded-3xl bg-secondary sm:mx-8 lg:absolute lg:inset-y-24 lg:right-0 lg:mx-0 lg:mt-0 lg:aspect-auto lg:w-[52%] lg:rounded-l-4xl lg:rounded-r-none">
         <Image
           src="/images/AboutSectionMainPicture.webp"
-          alt="Evening view of a brick house with arched French doors and a lit front walk"
+          alt="Stone house with black-framed windows and a warmly lit entrance"
           fill
           sizes="(min-width: 1024px) 52vw, 100vw"
-          className="object-cover object-[68%_50%]"
+          className="object-contain p-6 drop-shadow-2xl sm:p-10 lg:p-14"
         />
       </div>
     </section>

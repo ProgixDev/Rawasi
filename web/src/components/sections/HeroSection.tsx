@@ -35,7 +35,7 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="-z-20 object-cover object-[50%_70%]"
+          className="-z-20 object-cover object-[45%_60%]"
         />
         <div className="absolute inset-0 -z-10 bg-linear-to-b from-brand/75 via-brand/20 to-brand/60" />
 
