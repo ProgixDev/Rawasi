@@ -1,12 +1,5 @@
 "use client";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/DropdownMenu";
-import { THEME_VARIANTS, useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import {
   Bell,
@@ -14,7 +7,6 @@ import {
   ListFilter,
   LogOut,
   MessageCircle,
-  Palette,
   Search,
 } from "lucide-react";
 import Image from "next/image";
@@ -439,7 +431,6 @@ function TopBar({
   logoutHref?: string;
 }) {
   const pathname = usePathname();
-  const { variantId, setVariantId } = useTheme();
   const round =
     "grid size-9 shrink-0 place-items-center rounded-full border transition-colors hover:bg-black/[0.03] sm:size-10";
 
@@ -489,34 +480,6 @@ function TopBar({
           line: at size-10 with gap-2 they came to 374px inside a 342px row
           and broke onto one of their own. */}
       <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button
-              type="button"
-              aria-label="Change color theme"
-              className={round}
-              style={{ borderColor: C.line, backgroundColor: C.card, color: C.ink }}
-            >
-              <Palette className="size-4" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {THEME_VARIANTS.map((variant) => (
-              <DropdownMenuItem key={variant.id} onSelect={() => setVariantId(variant.id)}>
-                <span
-                  data-theme={variant.id}
-                  className="bg-primary size-4 shrink-0 rounded-full border"
-                  aria-hidden
-                />
-                {variant.name}
-                {variant.id === variantId && (
-                  <span className="ml-auto text-xs text-muted-foreground">Active</span>
-                )}
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-
         <button
           type="button"
           aria-label="Search"

@@ -1,35 +1,12 @@
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { THEME_VARIANTS, VARIANT_STORAGE_KEY } from "@/contexts/theme-variants";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { preload } from "react-dom";
 
-const VALID_VARIANT_IDS = THEME_VARIANTS.map((v) => v.id);
-
-// Sets `data-theme` on <html> synchronously, before the browser's first
-// paint — the same reason next-themes' own `.dark` class never flashes.
-// VariantProvider's mount effect can't run until the JS bundle hydrates,
-// which is well after that first paint, so without this the page always
-// renders the default palette first and flips to the stored one a moment
-// later.
-const SET_VARIANT_SCRIPT = `(function() {
-  try {
-    var stored = localStorage.getItem(${JSON.stringify(VARIANT_STORAGE_KEY)});
-    if (stored && ${JSON.stringify(VALID_VARIANT_IDS)}.indexOf(stored) > -1) {
-      document.documentElement.setAttribute("data-theme", stored);
-    }
-  } catch (e) {}
-})();`;
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// Helvetica Neue (DESIGN.md) is declared with @font-face in globals.css and
+// served from public/fonts. Preload the two faces the first paint uses —
+// body text (400) and headings (500) — so text doesn't swap late.
+const PRELOADED_FONTS = ["Regular", "Medium"];
 
 export const metadata: Metadata = {
   // Needed to resolve og:image/twitter:image into absolute URLs — without
@@ -41,18 +18,23 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  for (const weight of PRELOADED_FONTS) {
+    preload(`/fonts/HelveticaNeue/HelveticaNeue-${weight}.woff2`, {
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    });
+  }
+
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className="h-full antialiased"
       // next-themes sets the .dark class client-side, before hydration
       // finishes, so the class it applies never matches the server-rendered
       // markup — that mismatch is expected here, not a real bug.
       suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: SET_VARIANT_SCRIPT }} />
-      </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>{children}</ThemeProvider>
       </body>

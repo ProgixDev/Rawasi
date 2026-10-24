@@ -6,7 +6,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/DropdownMenu";
-import { THEME_VARIANTS, useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import {
   Sheet,
@@ -16,7 +15,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/Sheet";
+} from "@/components/ui/sheet";
 import {
   Bell,
   Check,
@@ -28,7 +27,6 @@ import {
   Heart,
   LogOut,
   Menu,
-  Palette,
   type LucideIcon,
 } from "lucide-react";
 import Image, { type StaticImageData } from "next/image";
@@ -764,7 +762,6 @@ export function AdminDashboardDesign2({
   output = OUTPUT,
   backgroundSrc = backgroundPhoto,
 }: AdminDashboardDesign2Props) {
-  const { variantId, setVariantId } = useTheme();
   const iconButton =
     "grid size-10 place-items-center rounded-full border border-white/15 bg-white/10 text-white/75 transition-colors hover:bg-white/20 hover:text-white";
 
@@ -821,29 +818,6 @@ export function AdminDashboardDesign2({
             </h1>
 
             <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <button type="button" aria-label="Change color theme" className={iconButton}>
-                    <Palette className="size-4" />
-                  </button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  {THEME_VARIANTS.map((variant) => (
-                    <DropdownMenuItem key={variant.id} onSelect={() => setVariantId(variant.id)}>
-                      <span
-                        data-theme={variant.id}
-                        className="bg-primary size-4 shrink-0 rounded-full border"
-                        aria-hidden
-                      />
-                      {variant.name}
-                      {variant.id === variantId && (
-                        <span className="ml-auto text-xs text-muted-foreground">Active</span>
-                      )}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-
               <button type="button" aria-label="Notifications" className={iconButton}>
                 <Bell className="size-4" />
               </button>

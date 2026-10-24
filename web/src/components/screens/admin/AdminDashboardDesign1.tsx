@@ -1,12 +1,6 @@
 "use client";
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/DropdownMenu";
-import {
   Sheet,
   SheetClose,
   SheetContent,
@@ -14,8 +8,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/Sheet";
-import { THEME_VARIANTS, useTheme } from "@/contexts/ThemeContext";
+} from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import {
   ArrowDownRight,
@@ -24,7 +17,6 @@ import {
   ChevronRight,
   LogOut,
   Menu,
-  Palette,
   Search,
   Star,
   type LucideIcon,
@@ -358,7 +350,6 @@ function TopBar({
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const { variantId, setVariantId } = useTheme();
   const [search, setSearch] = useState("");
   const [focused, setFocused] = useState(false);
 
@@ -495,32 +486,6 @@ function TopBar({
       </form>
 
       <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button
-              type="button"
-              aria-label="Change color theme"
-              className="grid size-10 shrink-0 place-items-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <Palette className="size-4" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {THEME_VARIANTS.map((variant) => (
-              <DropdownMenuItem key={variant.id} onSelect={() => setVariantId(variant.id)}>
-                <span
-                  data-theme={variant.id}
-                  className="bg-primary size-4 shrink-0 rounded-full border"
-                  aria-hidden
-                />
-                {variant.name}
-                {variant.id === variantId && (
-                  <span className="ml-auto text-xs text-muted-foreground">Active</span>
-                )}
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
         {/* Decorative — it names nobody the page doesn't already name, and on
             a phone the 40px it costs is better spent on the title. */}
         {initials && (

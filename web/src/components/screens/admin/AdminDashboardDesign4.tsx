@@ -1,12 +1,5 @@
 "use client";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/DropdownMenu";
-import { THEME_VARIANTS, useTheme } from "@/contexts/ThemeContext";
 import { cn } from "@/lib/utils";
 import {
   ArrowDown,
@@ -16,7 +9,6 @@ import {
   Globe,
   LogOut,
   Mail,
-  Palette,
   PieChart,
   Search,
   Wallet,
@@ -355,7 +347,6 @@ function TopBar({
   logoutHref?: string;
 }) {
   const pathname = usePathname();
-  const { variantId, setVariantId } = useTheme();
 
   return (
     <header className="flex flex-wrap items-center justify-between gap-4">
@@ -399,34 +390,6 @@ function TopBar({
       </nav>
 
       <div className="flex items-center gap-2">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button
-              type="button"
-              aria-label="Change color theme"
-              className="grid size-10 place-items-center rounded-full transition-opacity hover:opacity-80"
-              style={{ backgroundColor: C.cardSoft, color: C.ink }}
-            >
-              <Palette className="size-4" />
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {THEME_VARIANTS.map((variant) => (
-              <DropdownMenuItem key={variant.id} onSelect={() => setVariantId(variant.id)}>
-                <span
-                  data-theme={variant.id}
-                  className="bg-primary size-4 shrink-0 rounded-full border"
-                  aria-hidden
-                />
-                {variant.name}
-                {variant.id === variantId && (
-                  <span className="ml-auto text-xs text-muted-foreground">Active</span>
-                )}
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-
         <RoundButton label="Search">
           <Search className="size-4" />
         </RoundButton>
