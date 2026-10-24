@@ -56,17 +56,20 @@ export function HeroSection() {
             </p>
           </div>
 
-          <dl className="mt-auto flex flex-wrap gap-3 lg:justify-end">
+          {/* Stacked and centred. The term comes first in the markup (it names
+              the figure) and `flex-col-reverse` puts the number on top.
+              From `md` the stack is pinned to the card's bottom-right corner
+              with the same gap below as to the right (the gaps are the
+              page's side padding); below that it stays in flow, above the
+              notch, because the notch would sit under it. */}
+          <dl className="mt-auto grid auto-rows-fr justify-end gap-3 md:absolute md:right-8 md:bottom-8 md:mt-0 lg:right-12 lg:bottom-12">
             {STATS.map((stat) => (
               <div
                 key={stat.label}
-                className="min-w-36 rounded-2xl bg-surface-glass px-5 py-4 text-foreground backdrop-blur-md"
+                className="flex w-44 flex-col-reverse items-center justify-center gap-2 rounded-2xl bg-surface-glass px-5 py-5 text-center text-foreground backdrop-blur-md"
               >
-                <dt className="sr-only">{stat.label}</dt>
-                <dd className="font-display text-3xl leading-none">{stat.value}</dd>
-                <p aria-hidden="true" className="mt-2 max-w-32 text-xs text-muted-foreground">
-                  {stat.label}
-                </p>
+                <dt className="max-w-32 text-xs text-muted-foreground">{stat.label}</dt>
+                <dd className="font-display text-4xl leading-none">{stat.value}</dd>
               </div>
             ))}
           </dl>

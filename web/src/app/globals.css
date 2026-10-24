@@ -249,3 +249,25 @@ html {
     letter-spacing: 0;
   }
 }
+
+/*
+ * Theme-switch reveal (see ThemeToggle.tsx). The browser's default view
+ * transition cross-fades the old page into the new one; switch that off, and
+ * stack the new page on top so the JS-driven circle can uncover it. The old
+ * page stays put underneath, unscaled and unfaded.
+ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+button {
+  cursor: pointer;
+}

@@ -107,3 +107,4 @@ Material 3 (Material You) is Google’s latest evolution of its design language.
 - **Dynamic Color:** The primary visual flourish. The entire UI shifts its hue to match the user's context.
 - **Soft Shadows:** Uses very subtle, multi-layered shadows that feel more like "ambient occlusion" than traditional drop shadows.
 - **State Layers:** Interactive elements use an overlay (usually `8%` to `12%` opacity) to indicate hover and focus states.
+- **Light/dark switch (web):** a circular reveal that grows out of the toggle button until it covers the screen. 620ms, ease-out cubic (`cubic-bezier(0.215, 0.61, 0.355, 1)`), the same as the mobile onboarding design 5. The page underneath doesn't scale or fade. Browsers without View Transitions, and visitors who prefer reduced motion, get an instant switch. Implemented in `web/src/components/ui/ThemeToggle.tsx` plus the `::view-transition` rules at the end of `globals.css`.
