@@ -6,12 +6,14 @@ describe("Home", () => {
   it("renders the hero with its headline, stats and call to action", () => {
     render(<Home />);
 
+    const hero = screen.getByRole("region", { name: "Building value, Anchored in Trust" });
+
     expect(
-      screen.getByRole("heading", { level: 1, name: "Building value, Anchored in Trust" }),
+      within(hero).getByRole("heading", { level: 1, name: "Building value, Anchored in Trust" }),
     ).toBeInTheDocument();
-    expect(screen.getByText("2015")).toBeInTheDocument();
-    expect(screen.getByText("16")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Discover Evergreen Vista/ })).toHaveAttribute(
+    expect(within(hero).getByText("2015")).toBeInTheDocument();
+    expect(within(hero).getByText("16")).toBeInTheDocument();
+    expect(within(hero).getByRole("link", { name: /Discover Evergreen Vista/ })).toHaveAttribute(
       "href",
       "#projects",
     );
@@ -74,5 +76,19 @@ describe("Home", () => {
     expect(items).toHaveLength(4);
     expect(items[0]).toHaveTextContent(/undervalued real estate opportunities/);
     expect(items[3]).toHaveTextContent(/sustainable development/);
+  });
+
+  it("renders the contact section with a mail link and the land facts", () => {
+    render(<Home />);
+
+    const contact = screen.getByRole("region", { name: "Let’s build your next chapter" });
+
+    expect(contact).toHaveAttribute("id", "contact");
+    expect(within(contact).getByRole("link", { name: "Contact us" })).toHaveAttribute(
+      "href",
+      expect.stringMatching(/^mailto:.+@.+/),
+    );
+    expect(within(contact).getByText("Acres of residential land")).toBeInTheDocument();
+    expect(within(contact).getByText("Lots planned")).toBeInTheDocument();
   });
 });
