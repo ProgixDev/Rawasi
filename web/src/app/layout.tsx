@@ -16,8 +16,9 @@ export const metadata: Metadata = {
   // it Next falls back to localhost even in production. Set
   // NEXT_PUBLIC_SITE_URL once this is actually deployed somewhere.
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  title: "App",
-  description: "App",
+  title: "Rawasi | Real Estate & Construction",
+  description:
+    "Rawasi is a real estate and construction company in Montreal. Anchored in trust, building long-term value for investors and communities.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
