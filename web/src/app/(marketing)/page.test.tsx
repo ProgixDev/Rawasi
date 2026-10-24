@@ -1,4 +1,5 @@
 import { render, screen, within } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Home from "./page";
 
 describe("Home", () => {
@@ -44,5 +45,22 @@ describe("Home", () => {
       "href",
       "/#contact",
     );
+  });
+
+  it("renders the values section with the five core values as an accordion", async () => {
+    const user = userEvent.setup();
+    render(<Home />);
+
+    const values = screen.getByRole("region", { name: "Why partners choose Rawasi" });
+
+    expect(values).toHaveAttribute("id", "values");
+    for (const name of ["Integrity", "Excellence", "Innovation", "Partnership", "Sustainability"]) {
+      expect(within(values).getByText(name)).toBeInTheDocument();
+    }
+
+    const integrity = within(values).getByText("Integrity").closest("details");
+    expect(integrity).not.toHaveAttribute("open");
+    await user.click(within(values).getByText("Integrity"));
+    expect(integrity).toHaveAttribute("open");
   });
 });
