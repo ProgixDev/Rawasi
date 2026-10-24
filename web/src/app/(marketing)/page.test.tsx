@@ -30,4 +30,19 @@ describe("Home", () => {
       "/#approach",
     );
   });
+
+  it("renders the projects section with the featured project and four pieces of work", () => {
+    render(<Home />);
+
+    const projects = screen.getByRole("region", { name: "Built with Purpose" });
+
+    expect(projects).toHaveAttribute("id", "projects");
+    expect(within(projects).getAllByRole("figure")).toHaveLength(5);
+    expect(within(projects).getByText("Evergreen Vista")).toBeInTheDocument();
+    expect(within(projects).getByText("12 acres · 16 lots · 5 minutes from the U.S. border")).toBeInTheDocument();
+    expect(within(projects).getByRole("link", { name: "Start a project" })).toHaveAttribute(
+      "href",
+      "/#contact",
+    );
+  });
 });
