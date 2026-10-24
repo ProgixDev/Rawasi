@@ -20,6 +20,12 @@ const NOTCH_FILLER_RIGHT = `radial-gradient(circle at top right, transparent ${N
  * bottom-right and the call to action in a notch at the bottom. Text sits on
  * the photo, which is dark-scrimmed in both themes, so it uses the
  * on-brand colour instead of the page foreground.
+ *
+ * The photo is the timber-frame house (HeroSectionBackground.webp). The
+ * generated stone house is kept as HeroSectionBackground2.webp; to use it,
+ * point `src` at it, change the crop to `object-[45%_60%]` and darken the
+ * scrim (about `from-brand/85 via-brand/45 to-brand/45`) because the
+ * headline then runs across a brighter, busier picture.
  */
 export function HeroSection() {
   return (
@@ -35,7 +41,7 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="-z-20 object-cover object-[45%_60%]"
+          className="-z-20 object-cover object-[50%_70%]"
         />
         <div className="absolute inset-0 -z-10 bg-linear-to-b from-brand/75 via-brand/20 to-brand/60" />
 
